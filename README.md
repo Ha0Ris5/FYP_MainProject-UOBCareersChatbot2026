@@ -20,6 +20,20 @@ I evaluated Dialogflow (too rigid), IBM Watson (£140/month, too expensive), and
 Q: What went wrong? How did you fix it?
 I built 3 weeks of Dialogflow before realising it couldn't handle open-ended queries — students ask questions from too many angles. I pivoted to GPT-4. The intent taxonomy I'd built became the system prompt structure, so the work wasn't wasted. Taught me to prototype before committing.
 
+What is hallucination?
+Hallucination is when an AI model like GPT-4 confidently generates information that sounds correct but is actually made up. For example, it might invent a salary figure, fabricate a scholarship that doesn't exist, or misstate a course entry requirement — all stated with complete confidence and no warning.
+In a careers chatbot context, this is a serious problem. A student might make a real decision — choosing a degree, applying for a grant — based on false information the chatbot invented.
+
+How I fixed it — Retrieval-Augmented Generation (RAG)
+Instead of letting GPT-4 generate answers from scratch (where it can hallucinate), I made the backend retrieve real, verified data first, then pass that data to GPT-4 as context. GPT-4's job then becomes summarising and explaining real information — not inventing it.
+The three sources I retrieve from are:
+
+Firebase Firestore — structured university data (programmes, scholarships, careers)
+Google Custom Search API — restricted to UoB and Prospects.ac.uk only
+System-level prompting — instructs GPT-4 to express uncertainty rather than guess, and to stay within careers/education topics
+
+This is actually a standard industry technique called RAG (Retrieval-Augmented Generation) — I arrived at it independently by solving the problem practically, then learned it had a formal name.
+
 Q: How do you stop GPT-4 making things up?
 Database-first retrieval — backend queries Firebase or Google Search first, injects verified data into GPT-4's prompt as context. GPT-4 summarises real data rather than generating facts. Domain prompts also tell it to flag uncertainty rather than guess.
 
