@@ -36,5 +36,4 @@ Features — One Line Each
 
 Next Steps - Adding multi language translation for international students accomidating for more students.
 
-Q: What would you do differently?
-Prototype multiple platforms before committing — not just research them. I'd also add a vector database (Pinecone/Chroma) for semantic search rather than keyword-based Firestore queries.
+
