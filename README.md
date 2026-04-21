@@ -26,5 +26,15 @@ Database-first retrieval — backend queries Firebase or Google Search first, in
 Q: Is it production-ready?
 It's a prototype — all core features work. Next steps: user testing with real students, security audit, admin dashboard for staff to update the knowledge base, and load testing for 50+ concurrent users.
 
+Features — One Line Each
+•	Natural language input — no rigid menus, students type freely
+•	User profiling — identifies prospective / current / graduate at session start
+•	Multi-source retrieval — Firebase, Google Search, GPT-4 combined
+•	Session context — remembers what was said earlier in the conversation
+•	Topic filtering — keeps GPT-4 on careers/education topics only
+•	Source links — responses include links so students can verify info
+
+Next Steps - Adding multi language translation for international students accomidating for more students.
+
 Q: What would you do differently?
 Prototype multiple platforms before committing — not just research them. I'd also add a vector database (Pinecone/Chroma) for semantic search rather than keyword-based Firestore queries.
